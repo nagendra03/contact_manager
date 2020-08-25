@@ -7,7 +7,7 @@
 
 
 {% block content %}
-{#<div class="container-fluid">#}
+<div class="container-fluid">
 
     <div class="row">
         <div class="col-md-10">
@@ -37,59 +37,39 @@
         </div>
     {% endif %}
 
-{#    <div class="row">#}
-{#        <div class="col-md-10 col-md-offset-1">#}
-{#            <table class="table table-bordered table-striped table-responsive">#}
-{#                <tr>#}
-{#                    <th>Full Name</th>#}
-{#                    <th>Address</th>#}
-{#                    <th>Email</th>#}
-{#                    <th>Mobile</th>#}
-{#                    <th>Alternate Mobile</th>#}
-{#                    <th>Company</th>#}
-{#                    <th>Actions</th>#}
-{##}
-{#                </tr>#}
-{#                {% for list in lists %}#}
-{#                    <tr>#}
-{#                        <td>{{ list.get_full_name }}</td>#}
-{#                        <td>{{ list.address }}</td>#}
-{#                        <td>{{ list.email }}</td>#}
-{#                        <td>{{ list.mobile }}</td>#}
-{#                        <td>{{ list.alternate_mobile }}</td>#}
-{#                        <td>{{ list.company }}</td>#}
-{#                        <td>#}
-{#                            <a class="btn btn-primary btn-sm" href="{% url 'contacts:edit' list.pk %}"><span>Edit</span></a>#}
-{#                            <a class="btn btn-danger btn-sm" href="{% url 'contacts:delete' list.pk %}"><span>Delete</span></a>#}
-{#                        </td>#}
-{#                    </tr>#}
-{#                {% endfor %}#}
-{#            </table>#}
-{#        </div>#}
-{#    </div>#}
-
     <div class="row">
-        {% for list in lists %}
-            <div class="col-md-3">
-                <div class="card">
-                    {{ list.get_full_name }}
-                       {{ list.address }}
-                       {{ list.email }}
-                    {{ list.mobile }}
-                      {{ list.alternate_mobile }}
-                       {{ list.company }}
+       <div class="col-md-10 col-md-offset-1">
+            <table class="table table-bordered table-striped table-responsive">
+               <tr>
+                   <th>Full Name</th>
+                   <th>Address</th>
+                   <th>Email</th>
+                   <th>Mobile</th>
+                   <th>Alternate Mobile</th>
+                   <th>Company</th>
+                   <th>Actions</th>
 
-                           <a class="btn btn-primary btn-sm" href="{% url 'contacts:edit' list.pk %}"><span>Edit</span></a>
+               </tr>
+               {% for list in lists %}
+                   <tr>
+                       <td>{{ list.get_full_name }}</td>
+                       <td>{{ list.address }}</td>
+                       <td>{{ list.email }}</td>
+                        <td>{{ list.mobile }}</td>
+                        <td>{{ list.alternate_mobile }}</td>
+                        <td>{{ list.company }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="{% url 'contacts:edit' list.pk %}"><span>Edit</span></a>
                             <a class="btn btn-danger btn-sm" href="{% url 'contacts:delete' list.pk %}"><span>Delete</span></a>
-
-
-                 </div>
-
-            </div>
-        {% endfor %}
-
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 
+    
 
-{#</div>#}
+
+</div>
 {% endblock %}
